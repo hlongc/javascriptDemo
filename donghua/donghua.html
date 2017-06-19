@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>move</title>
+    <script>
+        
+        window.onload = function(){
+            function $(id){
+                return document.getElementById(id);
+            }
+            
+            var oBtn = $("btn");
+            var oSport1 = $("sport1");
+            var oSport2 = $("sport2");
+            var oSport3 = $("sport3");
+            oBtn.onclick = function(){
+                startMove([oSport1,oSport2,oSport3],{left:1070,height:50,width:70})
+            }
+            
+            function startMove(obj,oAttr){
+                for(var i=0;i<obj.length;i++){
+                    clearInterval(obj[i].timer);
+                    obj[i].timer=setInterval((function(i){
+                       return function () {
+                            var bBtn = true;
+                            for(var sAttr in oAttr){
+                                var iCurr = parseInt(getAttr(obj[i],sAttr));
+                                var iSpeed = (oAttr[sAttr]-iCurr)/6;
+                                iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                                obj[i].style[sAttr]=iCurr+iSpeed+"px";
+                                if(iCurr+iSpeed !== oAttr[sAttr]){
+                                    bBtn=false;
+                                }
+                            }
+                            if(bBtn){
+                                clearInterval(obj[i].timer);
+                            }
+                       }
+                    })(i),50);
+                }
+            }
+            
+            function getAttr(obj,sAttr){
+                if(obj.currentStyle){
+                    return obj.currentStyle[sAttr];
+                }else{
+                    return getComputedStyle(obj,null)[sAttr];
+                }
+            }
+            
+            
+        }
+    </script>
+    
+    <style type="text/css">
+        .start-line{width: 1px;background: black;height: 100%;position: absolute;top: 0;left: 70px;}
+        #sport1{width: 20px;height: 20px;background: skyblue; position: absolute;top: 200px;left: 50px;}
+        #sport2{width: 20px;height: 20px;background: red;position: absolute;top: 270px;left: 50px;}
+        #sport3{width: 20px;height: 20px;background: yellow;position: absolute;top: 340px;left: 50px;}
+        .end-line{width: 1px;background: black;height: 100%;position: absolute;top: 0;left: 1070px;}
+    </style>
+    
+</head>
+<body>
+    <button id="btn">动起来</button>
+    <div class="start-line"></div>
+    <div id="sport1"></div>
+    <div id="sport2"></div>
+    <div id="sport3"></div>
+    <div class="end-line"></div>
+     
+
+</body>
+</html>

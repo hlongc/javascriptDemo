@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .test1,.test2,.test3{
+            width: 200px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: black;
+            background-color: aqua;
+        }
+        .test2{
+            background-color: red;
+        }
+        .test3{
+            background-color: blue;
+        }
+    </style>
+    <script>
+        //js中的最大值
+        var max_value = Number.MAX_VALUE;
+        console.log(max_value);
+        //寻找数组中的最大值
+        var arr = new Array(1,5,6,10,7,-2),
+            arr2 = new Array(0,0,0,0);
+        console.log(Math.min.apply(null,arr));
+        console.log(arr.concat(arr2));
+        //找出字符串中指定位置的字符，索引从0开始
+        var string1 = 'abc123',
+            string2 = 'def456';
+        console.log(string1.charAt(1));
+        console.log(string1.concat(string2));
+        
+        //在所有DOM元素加载完成以后才执行
+        window.onload = function(){
+            var testDiv = document.getElementsByClassName("test1")[0];
+            var test2Div = document.getElementsByClassName("test2")[0];
+            var test3Div = document.getElementsByClassName("test3")[0];
+            var inputText = document.getElementsByTagName("input")[0];
+            var inputReset = document.getElementsByTagName("input")[1];
+            console.log(testDiv);
+            function ck(event){
+                var x = event.clientX;
+                var y = event.clientY;
+                alert("你点击了"+x+" "+y);
+            }
+            function ck2(event){
+                var x = event.screenX;
+                var y = event.screenY;
+                alert("你点击了相对于屏幕左上角"+x+" "+y)
+            }
+            testDiv.addEventListener('click',ck);
+            test2Div.onclick = function(){
+                testDiv.removeEventListener('click',ck);
+                testDiv.addEventListener('click',ck2);
+            }
+            test3Div.onclick = function(){
+                testDiv.removeEventListener('click',ck2);
+                testDiv.addEventListener('click',ck);
+            }
+            /*testDiv.onmouseover = function(){
+                console.log("失去焦点");
+            }
+            testDiv.onmouseout = function(){
+                console.log("得到焦点");
+            }
+            testDiv.ondblclick = function(){
+                console.log("点击");
+            }
+            testDiv.onmousemove = function(){
+                console.log("正在移动鼠标");
+            }*/
+            
+            console.log(inputText);
+            
+            /*inputText.onfocus = function(){
+                this.value = "获得焦点";
+            }
+            inputText.onblur = function(){
+                this.value = "失去焦点";
+            }*/
+            
+            inputReset.onreset = function(){
+                console.log("1");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="test1">
+        焦点测试
+    </div>
+    <div class="test2">
+        点击取消第一个的点击事件
+    </div>
+    <div class="test3">
+        点击添加第一个的点击事件
+    </div>
+    <form>
+        <input type="text" placeholder="请填写" />
+        <input type="reset" value="重置" /> 
+    </form>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

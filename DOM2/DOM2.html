@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM2</title>
+    <script>
+        window.onload = function(){
+            var oUl=document.getElementById("oUl");
+            
+            console.log(oUl.firstElementChild ? oUl.firstElementChild.nodeName : oUl.firstChild.nodeName);
+            
+            //fun位ie6,ie7可用方法
+            function getKindChild(fun,obj1){
+                fun1=fun.splice(4,0,"Element");
+                console.log(fun1);
+                console.log(obj1.fun1 ? obj1.fun1.nodeName : obj1.fun.nodeName);
+            }
+            
+            getKindChild('firstChild','obj1');
+            
+            var oLi=document.getElementsByTagName("li");
+            for(var i=0;i<oLi.length;i++){
+                //console.dir(oLi[i]);
+                oLi[i].index=i;
+                oLi[i].onclick = function(){
+                    console.log(this.parentNode);
+                }
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <ul id="oUl">
+        <li><a href="#">第一个</a></li>
+        <li><a href="#">第二个</a></li>
+        <li><a href="#">第三个</a></li>
+        <li><a href="#">第四个</a></li>
+        <li><a href="#">第五个</a></li>
+        <li><a href="#">第六个</a></li>
+    </ul>
+</body>
+</html>

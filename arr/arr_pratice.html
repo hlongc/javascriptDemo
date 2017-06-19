@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arr_pratice</title>
+    <script>
+        window.onload = function(){
+            var arr = [1,2,3,4,5,6];
+            var arr1 = ['a','b','c','d'];
+            var arr2 = ['A','B','C','D'];
+            var arr3 = [5,9,2,4,14,25,3];
+            var str = "7,80,9";
+            //如果方法自带返回值，那么所操作的对象没有被改变，如果没有返回值，原对象被改变
+            //console.log(arr.push(9,10,55,99));  //arr.push()向数组末尾加入新元素,返回新数组的长度,一次性可以添加多个新元素  
+            //console.log(arr);          //数组被改变了 arr : 1,2,3,9,10,55,99
+            //console.log(arr.unshift(-1,0));  //向数组开头加入新元素，返回新数组长度，一次性可插入多个值，并且改变数组
+            //console.log(arr);
+            //console.log(arr.pop());  //删除数组最后一个元素，并返回被删除的元素
+            //console.log(arr);       //数组长度发生改变  arr : 1,2
+            //console.log(arr.shift());  //删除数组第一个元素，并返回被删除的元素
+            //console.log(arr);           //数组长度发生改变  arr : 2,3
+            //console.log(arr.splice(1,0,"4,5,6"));   //以数组的形式返回被删除的元素,在使用这个方法时，第一个参数代表开始的位置，第二个参数代表删除元素个数，第三个参数代表你添加的元素
+            //console.log(arr);  //这个方法使用有点难度,容易理解错
+            //console.log(str.split('')); //以','把字符串str分割为数组，返回的数组为["7", "80", "9"],以''分割字符串为数组为 ["7", ",", "8", "0", ",", "9"]
+            //console.log(str);    //7,80,9     不改变原字符串
+            
+            //console.log(arr.join(','));  //数组转换为字符串，用','间隔，返回新的字符串
+            //console.log(arr);    //不改变原数组 
+            //console.log(arr.slice(0,3)); //数组分割   截取从索引0开始到3并且不包括3之间的元素，并返回这些元素  [1, 2, 3] ,可以以负数开始到负数结束,负数是这样索引的 0 -5 -4 -3 -2 -1;
+            //console.log(arr);   不改变原数组
+            //console.log(arr.concat(arr1,arr2)); //拼接多个数组，返回新数组，不会改变原数组
+            //console.log(arr3.sort()); //数组排序，不带参数排序就按照编码进行排序
+            /*console.log(arr3.sort(function(a,b){
+                return a-b;
+            }));*/  
+            //返回值大于0，表示第一个元素排在第二个元素后面，否则第一个元素排在第二个元素前面
+            
+        }
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="请输入" />
+</body>
+</html>

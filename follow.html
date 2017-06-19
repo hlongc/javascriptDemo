@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>follow</title>
+    <script>
+        
+        document.onmousemove = function(e){
+            var ev = e || window.Event;
+            var aDiv = document.getElementsByTagName("div");
+            for(var i=aDiv.length-1;i>0;i--){
+                aDiv[i].style.top=aDiv[i-1].style.top ;
+                aDiv[i].style.left=aDiv[i-1].style.left;
+            }
+            aDiv[0].style.left = ev.clientX + "px";
+            aDiv[0].style.top = ev.clientY + "px";
+        }
+        
+    </script>
+    
+    <style type="">
+        div{width: 20px;height: 20px;background: skyblue;position: absolute;top: 0;left: 0;}
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

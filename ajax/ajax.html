@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script src="ajax.js"></script>
+    <script>
+        window.onload = function(){
+            var oTj = document.getElementById('tj');
+            var oShow = document.getElementById('show');
+            oTj.onclick = function(){
+                var oData1 = {
+                    username : document.yz.username.value,
+                    password : document.yz.password.value
+                }
+                ajax('post','form.php',true,oData1,function(x){
+                    oShow.innerHTML= x.text;
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="tj">提交</button>
+    <form name="yz">
+        用户<input type="text" name="username" />
+        密码<input type="password" name="password" />
+    </form>
+    <div id="show"></div>
+</body>
+</html>

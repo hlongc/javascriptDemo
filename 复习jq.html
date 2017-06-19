@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-3.1.0.js"></script>
+    <script>
+        $(function(){
+            var divs = $("div");
+            $(divs).each(function(index,cur){
+                $(cur).html("当前是第"+(index+1)+"个div");
+                if((index+1)%2!==0){
+                    $(cur).addClass("ji");
+                }else{
+                    $(cur).addClass("ou");
+                }
+            })
+            
+            var imgs = $("img");
+            console.log($("img").get().reverse());
+            
+            console.log($(".three").index());
+            
+            $("#one").click(function(){
+                $(this).data("greeting",{
+                    "name":"胡龙超",
+                    "number":"20130502047",
+                    "age":"21",
+                    "sex":"男"
+                })
+            })
+            $("div:eq(1)").click(function(){
+                console.log($("#one").data("greeting").name);
+            })
+            
+            //移除img上的src属性
+            //$("img:eq(1)").removeAttr("src");
+            
+            $("div:last").click(function(){
+                $("input[type='checkbox']:eq(1)").prop({"checked":"true"});
+                var offset = $(this).offset();
+                console.log("左:"+offset.left+"   上:"+offset.top);
+                $("div:even").offset({"left":"80"});
+                $(".total").scrollTop(2000);
+            })
+            
+            
+            $("input[type='button']:first").click(function(){
+                $(".total").height(function(n,c){
+                    return c+10;
+                })
+            })
+            
+            $("input[type='button']:last").click(function(){
+                alert("1");
+                $(".t1").animate({"left":"50"},1000);
+                /*$(".total").width(function(n,c){
+                    return c+10;
+                })*/
+            })
+            
+            console.log($("p.t1"));
+        })
+    </script>
+    <style>
+        .ji{
+            background-color: aqua;
+        }
+        .ou{
+            background-color: deepskyblue;
+        }
+        img{
+            width: 50%;
+        }
+        .total{
+            width: 500px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        .t1{
+            width: 200px;
+            height: 50px;
+            background-color: deeppink;
+        }
+        .t2{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/140-15052G62G1-50.jpg" />
+    <img src="img/140-15052G62G1.jpg" />
+    <div id="one"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <ul>
+        <li class="one">1</li>
+        <li class="two">2</li>
+        <li class="three">3</li>
+    </ul>
+    <input type="datetime" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="email" />
+    <input type="button" value="变高" />
+    <input type="button" value="变宽" />
+    <ul class="total">
+        <p class="sub">很好看</p>
+    </ul>
+    <p class="t1">t1</p>
+    <p class="t2">t2</p>
+</body>
+</html>

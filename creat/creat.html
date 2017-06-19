@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script>
+		/*window.onload=function(){
+			var newp = document.createElement("p");
+			var con  = document.createTextNode("这是一段后来添加的文字");
+			newp.appendChild(con);
+			
+			var div1 = document.getElementById("only");
+			div1.appendChild(newp);
+            
+			var s=0,m=0,h=0;
+			setInterval(function (){
+				
+				s++;
+				if(s==60)
+				{
+					s=0;
+					m++;
+					if(m==60)
+					{
+						m=0;
+						h++;
+					}
+				}
+				
+				if(s<10&&m<10&&h<10)
+                {
+                    timer.innerHTML=("你在本页停留了0"+h+":0"+m+":"+"0"+s);
+                }
+                else if(s>=10&&m<10&&h<10)
+                    {
+                        timer.innerHTML=("你在本页停留了0"+h+":0"+m+":"+s);
+                    }
+                
+			},1000)
+			}*/
+			
+			
+			//div1.removeChild(newp);  删除子元素
+			/*
+			提示：如果能够在不引用父元素的情况下删除某个元素，就太好了。
+			不过很遗憾。DOM 需要清楚您需要删除的元素，以及它的父元素。
+			这是常用的解决方案：找到您希望删除的子元素，然后使用其 parentNode 属性来找到父元素：
+			newp.parentNode.removeChild(newp);
+
+			*/
+		
+		/*闭包 function f1(){
+　　　　	var n=999;
+　　　　	function f2(){
+　　　　　	　return n;
+　　　　	}
+　　　　	return f2;
+　　	}
+　　	var result=f1();
+　　	document.write(result()); // 999*/
+		
+		
+		/*var name = "The Window";   
+　　	var object = { 
+		
+　　　　name : "My Object",   
+　　　　getNameFunc : function(){   
+　　　　　　return function(){   
+　　　　　　　　return this.name;   
+　　　　　};   
+　　　　}   
+		}  
+		alert(object.getNameFunc()());  //The Window*/
+		
+		//indexOf("")用来寻找某个字符在字符串中出现第一次的位置
+		//match("")用来寻找查找某个特定的字符，找到就返回该字符，否则返回null
+		//replace()用来替代特定的字符串，replace(/Hello/,"w3school");//和""不能省略才能用后者代替前者的效果
+		/*var txt="Hello world!";
+		document.write(txt+"<br/>");
+		document.write("o在上面字符串中出现的首次位置是:"+(txt.indexOf("o")+1)+"<br/>");
+		document.write("rl在上面字符串中出现的首次位置是:"+(txt.indexOf("rl")+1)+"<br/>");
+		*/
+		
+		//document.write(new Date()+"<br/>");   //Date()返回 Wed Jul 20 2016 21:33:15 GMT+0800 (中国标准时间)
+		//document.write(new Date().toLocaleString()+"<br/>"); //返回 2016/7/20 下午9:35:53
+		//document.write(new Date().getTime()+"<br/>");  //返回从 1970 年 1 月 1 日至今的毫秒数。 
+		
+		//arr.concat(arr2)   把arr2数组与arr数组合并  打印时默认是以","间隔
+		//join() 方法将数组的所有元素组成一个字符串。 arr.join(".")  设定用"."来间隔每个元素,可改变
+		//sort() 方法从 字面上/数值上 对数组进行排序。
+		
+		//round() Math.round(0.6)  = 1 ; Math.round(-4.4) =-4; 四舍五入原则
+		//Math.random()   产生0~1的随机数
+		//document.write(Math.max(1,5,7,10)+"<br/>");   打印最大的数
+		//document.write(Math.min(1,5,-7,10)+"<br/>");	打印最小的数
+		
+		//document.write(Math.floor(Math.random()*11)) 
+		//以上Math 对象的 floor() 方法和 random() 来返回一个介于 0 和 10 之间的随机数：
+		
+		/*var a=10;
+		
+		function b()
+		{
+			alert(a);
+			var a=12;
+		}
+		b();
+		alert(a);
+		alert(b);*/
+		
+		/*var obj1 = new Object();
+		obj1.name="科比";
+		var obj2 = obj1;
+		obj2.name="布莱恩特";
+		alert(obj1.name);*/
+		
+		/*var arr = [20,15,58,64,29];
+		document.write(arr+"<br/>");
+		document.write(arr.sort());*/
+		
+		/*var str="asdsddasd";
+		for(var t in str)
+		{
+			
+			if(str.match("a"))
+			{
+				str=str.replace("a","x");
+			}
+		}
+		document.write(str);*/
+		
+		
+		//冒泡排序
+		/*var temp;
+		var arr = [25,95,84,54,74,35,16];
+		document.write("没进行排序之前的数组:");
+		for(var t in arr)
+		{
+			document.write(arr[t]+" ");
+		}
+		document.write("<br/>");
+		for(var i=0;i<arr.length-1;i++)
+		{
+			for(var j=0;j<arr.length-i-1;j++)
+			{
+				if(arr[j]>arr[j+1])
+				{
+					temp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+				}
+			}
+		}
+		document.write(" &nbsp;进行排序之后的数组:");
+		for(var t in arr)
+		{
+			document.write(arr[t]+" ");
+		}*/
+        //选择排序
+		/*var arr = [12,85,65,77,35,28,4,43];
+        for(var i=0;i<arr.length;i++)
+            {
+                var min=i;
+                var temp;
+                for(var j=i+1;j<arr.length;j++)
+                    {
+                        if(arr[j]<arr[min])
+                            {
+                                min=j;
+                            }
+                    }
+                
+                        temp=arr[min];
+                        arr[min]=arr[i];
+                        arr[i]=temp;
+            }
+        alert(arr);*/
+        
+		//二分查找:适用于已经排序好的数组，可以缩短查找元素的时间复杂度
+		/*var a = [16,25,37,42,55,67,74];
+		
+		function binarySearch(arr,x)
+		{
+			var low=0,high=arr.length-1;
+			while(low<high){
+				var mid=Math.floor((low+high)/2);
+				if(x==arr[mid])
+				{
+					return mid+1;
+				}
+				if(x<arr[mid])
+				{
+					high=mid-1;
+				}
+				if(x>arr[mid])
+				{
+					low=mid+1;
+				}
+			}
+			
+			return "不存在这个数字，查找失败";
+		}
+		
+		document.write(binarySearch(a,42));*/
+        
+        //插入排序
+        /*var arr = [36,55,47,62,15,67,4];
+        function insertSort(a)
+        {
+            for(var i=1;i<a.length;i++)
+                {
+                    var temp = a[i];
+                    for(var j=i-1;j>=0;j--)
+                        {
+                            if(temp<a[j])
+                                {
+                                    a[j+1]=a[j];
+                                    a[j]=temp;
+                                }
+                        }
+                    
+                }
+            return a;
+        }
+        console.log(insertSort(arr));*/
+        
+        
+        //快速排序
+        /*var a = [36,55,47,62,15,67,4];
+        function quickSort(arr)
+        {
+            debugger;
+            if(arr.length<=1)
+                {
+                    return arr;
+                }
+            else
+                {
+                    var midIndex = Math.ceil(arr.length/2);
+                    var mid = arr.splice(midIndex,1)[0];
+                    //var mid =a[midIndex];
+                    //splice返回的是一个数组
+                    var left = [];
+                    var right = [];
+                    for(var i=0;i<arr.length;i++)
+                        {
+                            if(arr[i]<mid)
+                                {
+                                    left.push(arr[i]);
+                                }
+                            else
+                                {
+                                    right.push(arr[i]);
+                                }
+                        }
+                    return quickSort(left).concat(mid,quickSort(right));
+                }
+        }
+        console.log(quickSort(a));*/
+		
+		/*var str="aabccdfgjj";
+		var m=0,n=0,p=0,q=0,x=0,y=0,z=0;
+		
+		function cal(a)
+		{
+			
+			for(var i in a)
+			{
+				if(a[i].match("a"))
+				{	
+					m++;
+				}
+				if(a[i].match("b"))
+				{	
+					n++;
+				}
+				if(a[i].match("c"))
+				{	
+					p++;
+				}
+				if(a[i].match("d"))
+				{	
+					q++;
+				}
+				if(a[i].match("f"))
+				{	
+					x++;
+				}
+				if(a[i].match("g"))
+				{	
+					y++;
+				}
+				if(a[i].match("j"))
+				{	
+					z++;
+				}
+				
+			}
+			
+		}
+		cal(str);
+		document.write("a"+m+"&nbsp;");
+		document.write("b"+n+"&nbsp;");
+		document.write("c"+p+"&nbsp;");
+		document.write("d"+q+"&nbsp;");
+		document.write("f"+x+"&nbsp;");
+		document.write("g"+y+"&nbsp;");
+		document.write("j"+z+"<br/>");*/
+		
+		//var str1="aabccdfgjj";
+		/*for(var j in str1)
+		{
+			document.write(str1[j]+"&nbsp;");
+		}*/
+		
+		//字符串去重
+		/*function qc()
+		{
+			var c=put.value;
+			function del(k)
+			{
+				var n = []; 
+				for(var i = 0; i < k.length; i++) 
+				{
+					if (n.indexOf(k[i]) == -1)
+					{
+						n.push(k[i]);
+					}
+					
+				}
+				return n;
+			}
+			
+			del(c);
+			var txt=del(c);
+			
+			var cal=new Array();
+			for(var z=0;z<txt.length;z++)
+			{
+				cal[z]=0;	
+			}
+			
+			var tt="",qq="";
+			
+			function num(x,y)
+			{
+				
+				for(var t=0;t<x.length;t++)
+				{
+					for(var p=0;p<y.length;p++)
+					{
+						if(x[t]==y[p])
+						{
+							cal[t]+=1;
+						}
+					}
+					
+				}
+				
+				for(var h=0;h<x.length;h++)
+				{
+					tt=tt+x[h]+":"+cal[h]+"个 ";
+                    qq+=x[h];
+					
+				}
+				answer1.value=qq;
+				ans.value=tt;
+			}
+			
+			num(txt,c);
+			
+		}*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+	
+	<style type="text/css">
+        
+	</style>
+</head>
+<body>
+
+	请输入需要去重的字符串:<input id="put"/>
+	<input type="button" value="去重" onclick="qc()"/>
+	<br/>
+    去重后的字符串:<input id="answer1"/>
+	<br/>
+    字符 及 其个数:<input id="ans"/>
+	<div id="only">
+		<p id="one">第一个段落</p>
+		<p id="two">第二个段落，下面会增加一个新的段落</p>
+	</div>
+    <label id="timer" /></label>
+	
+</body>
+</html>

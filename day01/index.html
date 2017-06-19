@@ -1,0 +1,581 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<script>
+	
+		//var t = parseFloat(prompt("请输入华氏摄氏度温度:"));
+		//document.write("转换为摄氏度为:"+parseInt(((t-32)*5)/9)+"℃"+"<br/>");
+		
+		//var hours = parseInt(prompt("请输入小时数:"));
+		//document.write(parseInt(hours/24) +"天"+hours%24+"小时"+"<br/>");
+		
+		/*用for in遍历对象的各个属性值
+		
+		① var cars = {chang:20,price:"10000RMB",color:"red",speed:"fast"};
+		
+		和下面创建对象的效果一样*/
+		
+		/*②var car = new Object();
+		car.chang=20;
+		car.price="10000RMB";
+		car.color="red";
+		car.speed="fast";
+		car.drive=function(){
+			alert("老司机开车了");
+		}
+		car.stop=function(){
+			alert("终点站到了");
+		}
+		for(var oStr in car)
+		{
+			if(typeof(car[oStr])=="function")
+			{
+				car[oStr]();
+			}
+			else{
+				document.write(oStr+":"+car[oStr]+"<br/>");
+			}
+		}*/
+		
+		//使用构造函数来构造对象
+			/*function person(firstname,lastname,age,eyecolor,name)
+			{
+				this.firstname=firstname;
+				this.lastname=lastname;
+				this.age=age;
+				this.eyecolor=eyecolor;
+				this.name=name;
+				
+				this.print=function(){
+					alert(this.age);
+				}
+			}
+			*/
+			//实例化一个对象
+			/*
+			var man = new person("Kobe","Bryant","sds","black","科比");
+			var woman = new person("Pan","XiaoTing",30,"black","潘晓婷");
+			
+			for(var temp in man)
+			{
+				if(typeof(man[temp])=="function")
+				{
+					man[temp]();
+				}
+				else{
+					document.write(temp+":"+man[temp]+"<br/>");
+				}
+			}
+			
+			document.write("<br/>");
+			
+			for(var temp in woman)
+			{
+				if(typeof(man[temp])=="function")
+				{
+					man[temp]();
+				}
+				else{
+					document.write(temp+":"+man[temp]+"<br/>");
+				}
+			}
+			*/
+			
+			
+		
+		/*
+		对象属性有两种寻址方式：
+		① name=person.lastname;
+		② name=person["lastname"];
+
+		
+		*/
+		
+		/*$(document).ready(function(){
+			$("#test").click(function(){
+				$("p").after("<p>Hello world!</p>");
+			});
+		});*/
+		
+		
+		/*var m = 10;
+		var n = 8;
+		var p = ++m + m++ + ++n + --m - n--;
+		document.write(p);
+		document.write(m);
+		document.write(n);*/
+		
+		//var m = "hello";
+		//var n = 8;
+		//document.write(m||n);
+		
+		/*if("123">10)
+		{
+			document.write("ok"+"<br/>");
+		}
+		
+		document.write(10&&20&&30+"<br/>");*/
+		
+		//document.write(false||""||5);
+		
+		/*var year = parseInt(prompt("请输入年份"));
+		if(!isNaN(year))
+		{
+			if(year%4==0)
+			{
+				if(year%100==0)
+				{
+					if(year%400==0)
+					{
+						alert(year+"年是闰年");
+					}
+					else
+					{
+						alert(year+"年是平年");
+					}
+				}
+				else
+				{
+					alert(year+"年是闰年");
+				}
+			}
+			else
+			{
+				alert(year+"年是平年");
+			}
+		}
+		else
+		{
+			alert("请输入一个数字");
+		}*/
+		
+		/*do{
+			var grade = prompt("请输入成绩:");
+			if(isNaN(grade)){
+				alert("让你输成绩，别乱来");
+			}
+			else{
+				if(grade>100||grade<0){
+					alert("我买瓶二锅头听你吹");
+				}
+				else if(grade<=100&&grade>=90){
+					alert("成绩优秀");
+				}
+				else if(grade<90&&grade>=80){
+					alert("成绩良好");
+				}
+				else if(grade<80&&grade>=60){
+					alert("成绩合格");
+				}
+				else if(grade>=0&&grade<60){
+					alert("你在逗我么，准备补考吧，小子！");
+				}
+			}
+		}
+		while(isNaN(grade));*/
+		
+		/*
+		var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document
+				, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+		var loc = new Array();
+		var i=0;
+		for(var num in arr)
+		{
+			if(typeof(arr[num])=="float"||typeof(arr[num])=="int")
+			{
+				document.write(arr[num]+" ");
+			}
+			
+			else
+			{
+				
+			}
+		}
+		document.write("<br/>");*/
+		
+		//for(var num = 0;num < arr.length;num++)
+		//{
+		//	document.write(arr[num]+" ");
+		//}
+		
+		/*var sex=prompt("请输入性别:");
+		if(sex=="男")
+		{
+			alert("请去男生宿舍");
+		}
+		else if(sex=="女")
+		{
+			alert("请去女生宿舍");
+		}else
+		{
+			alert("不男不女的走开");
+		}*/
+		
+		
+		//三种创建数组的方法
+		/*① var car = new Array();
+		car[0]="color";
+		car[1]="width";
+		car[2]="price";
+		
+		for(var t in car)
+		{
+			document.write(car[t]+" ");
+		}
+		
+		② var cars=["Audi","BMW","Volvo"];
+		
+		③ var cars=new Array("Audi","BMW","Volvo");*/
+		
+		/*三元运算符
+			greeting=(visitor=="PRES")?"Dear President ":"Dear ";
+			如果变量 visitor 中的值是 "PRES"(如果前面为真)，则向变量 greeting 赋值 "Dear President "，否则赋值 "Dear"。
+
+		*/
+
+		    
+        window.onload = function ()
+		{
+			setInterval("timer.innerHTML=new Date().toLocaleString()",1000); 
+		}
+		
+		/*
+		for(var i=1;i<=100;i++)
+		{
+			if(i%7==0)
+			{
+				document.write(i+" ");
+			}
+		}
+		document.write("<br/>");
+		for(var i=1;i<=100;i++)
+		{
+			if(i%2==1)
+			{
+				document.write(i+" ");
+			}
+		}
+		document.write("<br/>");
+		var sum=0;
+		for(var i=1;i<=100;i++)
+		{
+			if(i%2==0)
+			{
+				sum+=i;
+			}
+		}
+		document.write(sum+"<br/>");
+		for(var i=1;i<=100;i++)
+		{
+			if(i%7==0||i%3==0)
+			{
+				document.write(i+" ");
+			}
+		}
+		document.write("<br/>");
+		
+		var result=1;
+		for(var i=1;i<100;i++)
+		{
+			result*=i;
+		}
+		document.write(result+"<br/>");
+		
+		for(var x=1;x<=9;x++)
+		{
+			for(var y=1;y<=x;y++)
+			{
+				document.write(y+"*"+x+"="+x*y+" ");
+			}
+			document.write("<br/>");
+		}
+		document.write("<br/>");
+		var temp=0;
+		for(var i=1000;i<2000;i++)
+		{
+			
+			if((i%4==0&&i%100!=0)||(i%4==0&&i%100==0&&i%400==0))
+			{
+				temp++;
+				if(temp%4==0)
+				{
+					document.write(i+"<br/>");
+				}
+				else{
+					document.write(i+" ");
+				}
+			}
+		}
+		document.write(temp+"<br/>");*/
+		
+		/*var fact = parseInt(prompt("请输入数字"));
+		
+		var add = 0;
+		for(var i=1;i<=fact;i++)
+		{
+			var answer = 1;
+			for(var j=1;j<=i;j++)
+			{
+				answer*=j;
+			}
+			
+			add+=answer;
+			
+		}
+		document.write(add);*/
+		/*
+		var bian=parseInt(prompt("请输入一个数字"));
+		
+		for(var i=1;i<= bian;i++)
+		{
+			
+			for(var n=1;n<=bian-i;n++)
+			{
+				document.write("&nbsp;");
+			}
+			for(var m=1;m<=2*i-1;m++)
+			{
+				document.write("*");
+			}
+			document.write("<br/>");
+		}
+		*/
+		
+		/*var day = new Date().getDay();
+		var x;
+		switch (day)
+		{   
+			case 0:
+				x="星期天";
+				break;
+			case 1:
+				x="星期一";
+				break;
+			case 2:
+				x="星期二";
+				break;
+			case 3:
+				x="星期三";
+				break;
+			case 4:
+				x="星期四"
+				break;
+			case 5:
+				x="星期五";
+				break;
+			case 6:
+				x="星期六";
+				break;
+			default:
+				break;
+		}
+		document.write("今天"+x+"<br/>");*/
+		
+		
+		
+		/*function add()
+		{
+			var a = document.getElementById("num1").value;
+			var b = document.getElementById("num2").value;
+			if(isNaN(a)||isNaN(b))
+			{
+				alert("请输入数字！");
+			}
+			else
+			{
+				//把数字转换成Number类型，会自动判断其类型。如5.0+4会输出9,5.1+4会输出9.1
+				var c = Number(a) + Number(b);
+				document.getElementById("answer").value = c;
+			}
+			
+			
+		}*/
+		
+		
+		//利用js修改HTML标签CSS样式
+		function change()
+		{
+			document.getElementById("change").style.color="#eb6877";
+			document.getElementById("change").style.fontSize="30px";
+			document.getElementById("change").style.fontFamily="微软雅黑";
+			document.getElementById("change").style.visibility="visible";
+			document.getElementById("change").style.height="150px";
+			document.getElementById("change").style.lineHeight="150px";
+			
+		}
+		//for(var i=1;i<=100;i++)
+		//{
+		//	if(i%3==0)
+		//	{
+		//		document.write(i+" ");
+		//	}
+		//}
+		
+		function getanswer(fu)
+		{
+			var a = Number(document.getElementById("num3").value);
+			var b = Number(document.getElementById("num4").value);
+			switch(fu)
+			{
+				case "+":
+					daan.value=a+b;
+					break;
+				case "-":
+					daan.value=a-b;
+					break;
+				case "*":
+					daan.value=a*b;
+					break;
+				case "/":
+					daan.value=a/b;
+					break;
+				default:
+					break;
+			}
+				
+		}
+		
+		function mOver(obj)
+		{
+			obj.innerHTML="快离开";
+			obj.style.background="pink";
+			obj.style.color="#000";
+			obj.style.fontSize="20px";
+		}
+		function mOut(obj)
+		{
+			obj.innerHTML="回来";
+			obj.style.background="tan";
+			obj.style.color="black";
+			obj.style.fontFamily="微软雅黑";
+		}
+		
+		
+		//js中的prototype实例
+		function baseClass()
+		{
+			this.showMsg = function(){
+				alert("这是基类的方法");
+			}
+		}
+		
+		function extendClass ()
+		{
+		
+		}
+		
+		extendClass.prototype = new baseClass();
+		var instance = new extendClass();
+		instance.showMsg();
+		
+		/*function resu()
+		{
+			var sum=0;
+			for(var i=1;i<=100;i++)
+			{
+				if(i%2==0)
+				{
+					sum+=i;
+				}
+			}
+			return sum;
+		}*/
+		
+		//document.write(resu()+"<br/>");
+		
+		/*function all(num1,num2,num3)
+		{
+			var sum=0;
+			for(var i in arguments)
+			{
+				sum+=arguments[i];
+				document.write(arguments[i]);
+			}
+			return sum;
+		}
+		
+		document.write("<br/>"+all(1,2,3,4,5,6,8,9));*/
+		
+		
+		
+		
+		
+		
+	</script>
+	
+	<style type="text/css">
+		body{font-size:12px;font-family:"黑体";}
+		input{text-align:center;}
+		#test{width:100px;height:100px;background:green;text-align:center;}
+		#demo{width:120px;height:30px;padding:40px;background:lightgreen;color:#fff;}
+		#timer{position:fixed;bottom:0;right:0;}
+	</style>
+</head>
+<body>
+	<div id="timer"></div>
+	<p>这是一段演示文字</p>
+	<p id="change">这段文字将被改变</p>
+	<form>
+		<input type="button" value="改变风格" onclick="change()" />
+		<br/>
+		<br/>
+		<input type="text" id="num1" /> +
+		<input type="text" id="num2" /> =
+		<input type="text" id="answer" value="" />
+		<input type="button" value="计算" onclick="add()" />
+		<input type="reset" value="清空" />
+	</form>
+	
+	<!--onmousedown和onmouseup事件可以用来当用户点击或抬起时修改背景之类的-->
+	<div onmouseover="mOver(this)" onmouseout="mOut(this)" id="demo" >
+		把鼠标放在上面
+	</div>
+	
+	<form>
+		第一个数:<input id="num3" type="text" />
+		第二个数:<input id="num4" type="text" />
+		<input type="button" onclick="getanswer('+')" value="+" />
+		<input type="button" onclick="getanswer('-')" value="-" />
+		<input type="button" onclick="getanswer('*')" value="*" />
+		<input type="button" onclick="getanswer('/')" value="/" />
+		答案:<input type="text" id="daan" />
+	</form>
+	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

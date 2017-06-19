@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>计算器</title>
+    <style type="text/css">
+        
+        .extbody{height:350px;width:250px;position: absolute;top:50%;left:50%;margin-top: -175px;margin-left: -125px;background: #D9E4F1;border-radius: 10px;padding: 30px 10px 0 10px;border:1px solid #000;}
+        #lab{width:241px;height:80px;line-height: 120px; display: block;background: skyblue;border-radius: 5px;margin-bottom: 10px;text-align: right;font-size: 20px;padding-right: 5px;}
+        button{width: 43px;height: 35px;margin-bottom: 15px;border:0;border:1px solid #9191a9;border-radius: 2px;color:#1E395B;background: #EAF1F8;}
+        button:hover{background: #EAC89A;border-color: #EAC89A;}
+        .leftdiv{float:left;width:196px;}
+        .rightdiv{float:left;width:43px;display: inline;padding-left: 7px;}
+        .colbtn{height:85px;}
+        .rowbtn{width:93px;}
+    </style>
+    
+    <script>
+        
+        var bBlank=false;
+        function resett()
+        {
+            lab.innerHTML=0;
+        }
+        function add(t)
+        {
+            //debugger;
+            
+            var txt = lab.innerHTML;
+            //alert(txt);
+            if(txt[txt.length-1]==t&&((t=="+")||(t=="/")||(t=="*")||(t=="-")||(t==".")))
+                {
+                    return txt;
+                }
+            else if((txt[txt.length-1]=="+"||txt[txt.length-1]=="-"||txt[txt.length-1]=="*"||txt[txt.length-1]=="/"||txt[txt.length-1]==".")&&((txt[txt.length])!=t)&&((t=="+")||(t=="-")||(t=="*")||(t=="/")))
+            {
+                txt = txt.replace(txt[txt.length-1],t);
+            }
+            
+            else
+                {
+                    txt = txt + t;
+                }
+            
+            if((txt[0]=="0")&&((txt[1]!=".")&&(txt[1])!="+"&&(txt[1])!="-"&&(txt[1])!="*"&&(txt[1])!="/"))
+                {
+                    txt=txt.substring(1);
+                }
+            lab.innerHTML = txt;
+        }
+        function del()
+        {
+            var txt = lab.innerHTML;
+            if(txt.length==1)
+                {
+                    txt = 0;
+                }
+            else
+                {
+                    if(txt[txt.length-1]=="+"||txt[txt.length-1]=="-"||txt[txt.length-1]=="*"||txt[txt.length-1]=="/")
+                        {
+                            return txt;
+                        }
+                    else
+                    {
+                       txt = txt.substr(0,txt.length-1); 
+                    }    
+                }
+            lab.innerHTML = txt;
+        }
+        function sum(){
+            
+            debugger;
+            
+            var str = lab.innerHTML;
+            var reg = /[\+\-\*\/]/g;
+            var str1 = str.replace(reg, '#');
+            var oprate=str.match(reg);
+            //先判断最后一位是否为运算符，如果是的话，arr.pop();删除最后一个元素
+            var arr=str1.split("#");
+            if(str1[str1.length-1]=="#"){
+                arr.pop();
+            }
+            var normalLen = oprate.length; 
+            var opLen = oprate.length-1;
+            
+            var arrLen = arr.length;
+        
+            if(str[str.length-1]=="+"||str[str.length-1]=="-"||str[str.length-1]=="*"||str[str.length-1]=="/"){
+                    var bCal=true;
+                debugger;
+                    for(var i=0;i<opLen;i++){
+                        if(oprate[i]=="+"){
+                            arr[i+1]=Number(arr[i])+Number(arr[i+1]);
+                        }else if(oprate[i]=="-"){
+                            arr[i+1]=Number(arr[i])-Number(arr[i+1]);
+                        }else if(oprate[i]=="*"){
+                            arr[i+1]=arr[i]*arr[i+1];
+                        }else if(oprate[i]=="/"){
+                            if(arr[i+1]==0){
+                                lab.innerHTML="除数不能为零";
+                                bCal=false;
+                                return ;
+                            }else{
+                                arr[i+1]=arr[i]/arr[i+1];
+                            }  
+                        }
+                    }
+                    if(bCal){
+                        if(oprate[opLen]=="+"){
+                            arr[arrLen-1]=Number(arr[arrLen-1])*2;
+                        }else if(oprate[opLen]=="-"){
+                            arr[arrLen-1]=0;
+                        }else if(oprate[opLen]=="*"){
+                            arr[arrLen-1]*=arr[arrLen-1];
+                        }else if(oprate[opLen]=="/"){
+                            if(arr[arrLen-1]==0){
+                                lab.innerHTML="除数不能为零";
+                                return ;
+                            }else{
+                                arr[arrLen-1]=1;
+                            }
+                        }
+                    }   
+                }else{
+                    for(var i=0;i<normalLen;i++){
+                        if(oprate[i]=="+"){
+                            arr[i+1]=Number(arr[i])+Number(arr[i+1]);
+                        }else if(oprate[i]=="-"){
+                            arr[i+1]=arr[i]-arr[i+1];
+                        }else if(oprate[i]=="*"){
+                            arr[i+1]=arr[i]*arr[i+1];
+                        }else if(oprate[i]=="/"){
+                            if(arr[i+1]==0){
+                                lab.innerHTML="除数不能为零";
+                                return ;
+                            }else{
+                                arr[i+1]=arr[i]/arr[i+1];
+                            }
+                        }
+                    }
+                }
+                
+            lab.innerHTML=arr[arr.length-1];
+            bBlank=true;
+            
+        }
+        
+        function isFloat(num1,num2){
+            var reg = /\./;
+            if(reg.test(num1)||reg.test(num2)){
+                
+            }
+        }
+        
+        function sqr(){
+            var x=lab.innerHTML;
+            if(parseFloat(x)<0)
+                {
+                    lab.innerHTML="负数没有平方根";
+                }
+            else
+                {
+                    lab.innerHTML=Math.sqrt(x);
+                }
+        }
+        function reciprocal()
+        {
+            var y=lab.innerHTML;
+            if(y[0]=="0"&&y[1]=="-")
+                {
+                    y=y.substring(1);
+                }
+        
+            if(Number(y)==0)
+                {
+                    lab.innerHTML="除数不能为0";
+                }
+            else
+                {
+                    lab.innerHTML=y+"的倒数是:"+1/Number(y);
+                }
+        }
+        
+        
+    </script>
+    
+</head>
+<body>
+    <div class="extbody">
+       
+        <label id="lab">0</label>
+        <div class="leftdiv">
+            <button onclick="del()">←</button>
+            <button onclick="resett()">CE</button>
+            <button onclick="resett()">C</button>
+            <button onclick="add('/')">/</button>
+            
+            <button onclick="add('7')">7</button>
+            <button onclick="add('8')">8</button>
+            <button onclick="add('9')">9</button>
+            <button onclick="add('*')">*</button>
+            
+            <button onclick="add('4')">4</button>
+            <button onclick="add('5')">5</button>
+            <button onclick="add('6')">6</button>
+            <button onclick="add('-')">-</button>
+            
+            <button onclick="add('1')">1</button>
+            <button onclick="add('2')">2</button>
+            <button onclick="add('3')">3</button>
+            <button onclick="add('+')">+</button>
+            
+            <button class="rowbtn" onclick="add('0')">0</button>
+            <button onclick="add('.')">.</button>
+            
+        </div>
+        
+        <div class="rightdiv">
+            <button onclick="sqr()">√</button>
+            <button onclick="add('%')">%</button>
+            <button onclick="reciprocal()">1/x</button>
+            <button class="colbtn" onclick="sum()">=</button>
+        </div>
+
+    </div>
+</body>
+</html>

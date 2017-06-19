@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <script>
+        window.onload = function(){
+            
+            /* 
+            1、拖拽的时候，如果有文字选中会出现问题
+               原因:当鼠标按下的时候，如果页面中有文字被选中，会触发默认拖动文字的效果 
+               拖拽图片也有同样问题，解决办法一样
+                解决办法   标准:阻止默认行为
+                          非ie:全部捕获  setCapture      
+            */
+            
+            var oDemo = document.getElementById("demo");
+            drag(oDemo);
+            function drag(obj){
+                    oDemo.onmousedown = function(ev){
+                        var ev = ev || window.Event;
+                        //计算刚初始状态下div距离浏览器左侧和上方的距离
+                        var disX = ev.clientX - this.offsetLeft;
+                        var disY = ev.clientY - this.offsetTop;
+
+                        if(obj.setCapture){
+                            obj.setCapture();
+                        }
+                        // setCapture() 全局捕获:ie能实现，ff有，但是不实现,chrome无
+
+                        //防止拖动太快，将目标从oDemo改为文档，只要不超出文档就一直移动
+                        document.onmousemove = function(ev){
+                            var ev = ev || window.Event;
+                            var le = ev.clientX-disX ;
+                            var to = ev.clientY-disY;
+                            
+                            if(le<100){
+                                le=0;
+                            }else if(le>document.documentElement.clientWidth-obj.offsetWidth-100){
+                                le = document.documentElement.clientWidth-obj.offsetWidth;
+                            }
+                            if(to<100){
+                                to=0;
+                            }else if(to>document.documentElement.clientHeight-obj.offsetHeight-100){
+                                to = document.documentElement.clientHeight-obj.offsetHeight;
+                            }
+                            
+                            obj.style.left = le + 'px';
+                            obj.style.top = to + 'px';
+
+                        }
+
+                        //如果div上面有个层级更高的div,那么无法up，所以将对象从oDemo改为document
+                        document.onmouseup = function(){
+                            document.onmousemove = null;
+                            //document.onmouseup = null;
+                            //释放全局捕获
+                            if(obj.releaseCapture){
+                                obj.releaseCapture();
+                            }
+
+                        }
+
+                        return false;
+
+                }
+            }
+            
+            
+            
+        }
+    </script>
+    
+    <style type="text/css">
+        #demo{width: 175px;height: 198px;position: absolute;left: 200px;top: 0px;background:  url(demo1.jpg);}
+        #test{width: 100px;height: 100px;position: absolute;background: pink;}
+    </style>
+    
+</head>
+<body>
+    <div id="demo"></div>
+    <!--<div id="test"></div>-->
+</body>
+</html>

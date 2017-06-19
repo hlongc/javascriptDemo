@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>123</title>
+    <script>
+        document.title="DOM";
+        console.log(document.title);
+        console.log(document.all);  //返回元素所以集合
+        window.onload = function(){
+            console.log(document.forms['form3']);
+            console.log(document.getElementById("lastdiv").name);
+            
+            //罗伟强
+            /*var oLi = document.getElementsByTagName("li");
+            for(var i=0 ;i<oLi.length;i++){
+                oLi[i].onclick = (function(i){
+                    return function(){
+                        oLi[i].style.display = "none";
+                    }
+                })(i);
+            }*/
+            //封装通过ClassName获取DOM对象列表的方法
+           /* function getByClass(sClass){
+                if(document.getElementsByClassName){
+                    return document.getElementsByClassName(sClass);
+                }else{
+                    var aAll = [];
+                    var container = document.all;
+                    for(var i=0;i<container.length;i++){
+                        if(container[i].className==sClass){
+                            aAll.push(container[i]);
+                        }
+                    }
+                    return aAll;
+                }
+            }
+            
+            console.log(getByClass("form-class").length);*/
+            //console.log(document.all.length);
+            
+            
+            
+            //console.log(ddiv.innerHTML);
+            //console.log(ddiv.innerText);
+            //console.log(ddiv.outerHTML);
+            //console.log(ddiv.outerText);   火狐不支持
+            
+            //支持不同浏览器获取CSS属性的方法
+            //var oBox = document.getElementById("ddiv");
+            /*function getStyle(obj,sAttr){
+                if(obj.currentStyle){
+                    return obj.currentStyle[sAttr];
+                    //IE支持的方法
+                }else{
+                    return getComputedStyle(obj,null)[sAttr];
+                    //FF和Chrome支持的方法
+                } 
+            }
+            
+            
+            
+            console.log(getStyle(oBox,'width'));
+            oBox.style.styleFloat="right";
+            oBox.style.cssFloat="right";
+            console.log(getStyle(oBox,'float'));*/
+            
+            
+            
+            /*console.log(oBox.tagName);
+            console.log(oBox.id);
+            console.log(oBox.className);*/
+            //var oFrom = document.getElementsByTagName("form")[0];
+            //console.log(document.form1.area.value);
+            /*var oDiv = document.getElementById("ddiv");
+            console.log(oDiv.getAttribute('div-id'));
+            oDiv.removeAttribute('div-id');
+            oDiv.setAttribute('kuandu','300px')
+            console.log(oDiv.getAttribute('kuandu'));*/
+        
+        /*var o = {};
+        console.log(0);
+        console.dir(o);
+        o.name = 'abc';
+        console.log(o);
+        console.dir(o);*/
+        }
+    </script>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        #ddiv{width: 200px;height: 100px;background: skyblue;margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="ddiv" class="class-box" div-id="609442724">box盒子<span>2019-7-29</span></div>
+    <button onclick="plot()">焦点</button>
+    <form action="" name="form1" class="form-class">
+        <input type="text" name="name" value="信心" />
+        <input type="radio" name="sex" value="0" />女
+        <input type="radio" name="sex" value="1" />男
+        <select name="area">
+            <option value="1">成都市</option>
+            <option value="2">内江市</option>
+            <option value="3">洛杉矶市</option>
+            <option value="4">绵阳市</option>
+        </select>
+        <input type="submit" />
+    </form>
+    <form action="" name="form2" class="form-class"></form>
+    <form action="" name="form3" class="form-class"></form>
+    <form action="" name="form4" ></form>
+    <form action="" name="form5" ></form>
+    <form action="" name="form6" ></form>
+    <form action="" name="last"></form>
+    <div id="lastdiv" name="vvv"></div>
+    
+    <!--<ul>
+        <li><a href="javascript:;">第一个</a></li>
+        <li><a href="javascript:;">第二个</a></li>
+        <li><a href="javascript:;">第三个</a></li>
+        <li><a href="javascript:;">第四个</a></li>
+        <li><a href="javascript:;">第五个</a></li>
+    </ul>-->
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

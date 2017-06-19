@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" onmousedown="whichbtn(event)">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function (){
+            var div1 = document.getElementById("demo");
+            var newp = document.createElement("p");
+            
+            var newtxt = document.createTextNode("这是第二段文字");
+            newp.appendChild(newtxt);
+            //div1.appendChild(newp);
+            //appendchild()实在父元素的最后一个子元素后面添加该元素
+            div1.insertBefore(newp,first);
+            var pgroup = document.getElementsByTagName("p");
+            pgroup[1].style.color="skyblue";
+            pgroup[1].style.fontFamily="微软雅黑";
+            pgroup[1].style.fontSize="20px";
+            newp.parentNode.removeChild(newp);
+            
+            
+        }
+        
+        /*var arr = ['学生1','学生2'];
+        var temp = arr;
+        alert("temp"+temp);
+        alert("arr"+arr);
+        //temp.push("学生3");
+        //alert("temp"+temp);
+        //alert("arr"+arr);
+        temp[1] = '学生4';
+        alert("temp"+temp);
+        alert("arr"+arr);*/
+        
+        //alert('5'+['小米']);
+        
+        function Over(obj)
+        {
+            test.innerHTML="你上来了";
+            test.style.background="skyblue";
+            test.style.fontSize="16px";
+        }
+        
+        function Out(obj)
+        {
+            test.innerHTML="你又走了";
+            test.style.background="orange";
+            test.style.fontSize="30px";
+        }
+        
+        function Down(obj)
+        {
+            test.innerHTML="你现在点击了";
+        }
+        
+        function Up(obj)
+        {
+            test.innerHTML="你现在没点击";
+        }
+        
+        function whichbtn(event)
+        {
+            //alert("1");
+            var btnnum = event.button;
+            var x=event.clientX;
+            var y=event.clientY;
+            switch(btnnum)
+                {
+                    //debugger;
+                    case 0:
+                        alert("你点击了鼠标左键,当前坐标是"+"("+x+","+y+")" );
+                        break;
+                    case 1:
+                        alert("你点击了鼠标中键,当前坐标是"+"("+x+","+y+")");
+                        break;
+                    case 2:
+                        alert("你点击了鼠标右键,当前坐标是"+"("+x+","+y+")");
+                        break;
+                    default:
+                        alert("你点击的键不能识别");
+                        break;
+                 }
+        }
+        
+    </script>
+    
+    <style>
+        body{font-family: "微软雅黑";font-size: 12px;}
+        #test{width: 200px;height: 100px;line-height: 100px;background: pink;text-align: center;}
+    </style>
+</head>
+<body >
+    <div id="demo">
+        <p id="first">第一段文字</p>
+        
+    </div>
+    <div id="test" onmousemove="Over(this)" onmouseout="Out(this)" onmousedown="Down(this)" onmouseup="Up(this)">
+        初始文字
+    </div>
+</body>
+</html>

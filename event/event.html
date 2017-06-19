@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+    <script>
+        window.onload = function(){
+            
+            function $(id){
+                return document.getElementById(id);
+            }
+            
+            document.oncontextmenu = function(){
+                alert("右键菜单没了吧，啊哈哈哈");
+                return false;
+            }
+            
+            var oA = document.getElementsByTagName("a");
+            oA.onclick = function(ev){
+                (ev.preventDefault())||(ev.returnValue=false);
+            }
+            
+            /*var oDemo = $('demo');
+            
+            function a(){
+                alert("a");
+            }
+            
+            function b(){
+                alert("b");
+            }*/
+            
+            /*oDemo.attachEvent('onclick','a');
+            oDemo.attachEvent('onclick','b');*/
+            /*oDemo.addEventListener('click',a,true);
+            oDemo.addEventListener('click',b,true);
+            oDemo.removeEventListener('click',a,true);*/
+            
+            //获取事件对象
+            /*oDemo.onclick = function(ev){
+                var ev = ev||window.Event;
+                console.log(ev.clientX);
+                console.log(ev.offsetX);
+            }*/
+            
+            /*oDemo.onclick = function(){
+                console.log(this.clientX);
+            }*/
+            
+            /*var oDemo = $('demo');
+            var oWhite = $('white');*/
+           /* oDemo.addEventListener("click",function(){
+                alert("demo true");
+            },true);*/
+            /*oDemo.addEventListener("click",function(e){
+                //var e = ev || event;
+                //e.cancelBubble=true;
+                alert("demo false");
+            },false);*/
+            /*oWhite.addEventListener("click",function(){
+                alert("white true");
+            },true);*/
+            /*oWhite.addEventListener("click",function(e){
+                e.stopPropagation();
+                alert("white false");
+            },false);*/
+            
+            
+            //ie
+            /*oDemo.attachEvent("onclick",function(){
+                var ev =window.Event;
+                ev.cancelBubble = true;
+                alert("demo");
+            });
+            oWhite.attachEvent("onclick",function(){
+                alert("white");
+            });*/
+            
+            var oAdd = $('ADD');
+            var oUL = $('UL');
+            var oLi = document.getElementsByTagName("li");
+            var index=oLi.length;;
+            oAdd.onclick = function(){
+            var oNewLi = document.createElement('li');
+            oNewLi.innerHTML="第"+(++index)+"条新闻<span>&times;</span>";
+            oUL.appendChild(oNewLi);
+            }
+            
+            oUL.onclick = function(e){
+                var ev = e || window.Event;
+                console.log(ev);
+                var oT = ev.srcElement || ev.target;
+                console.log(oT);
+                if(oT.nodeName==='SPAN'){
+                    oUL.removeChild(oT.parentNode);
+                }
+                index--; 
+            }
+            
+            
+            /*var oMenu = $('menu');
+            document.oncontextmenu=function(e){
+                var ev = e || window.Event;
+                oMenu.style.left = ev.clientX + "px";
+                oMenu.style.top = ev.clientY + "px";
+                oMenu.style.display="block";
+                return false;
+            }
+            document.onclick = function(){
+                debugger;
+                oMenu.style.display = "none";
+            }*/
+            
+            
+        }
+    </script>
+    
+    <style type="text/css">
+        #demo{width: 200px;height: 200px;background: skyblue;overflow: hidden;}
+        #white{width: 100px;height: 100px;background: tan;margin: 30px auto;}
+        #UL li span{cursor: pointer;}
+        
+        #menu{list-style: none;width: 100px;border: 1px solid #ccc;display: none;position: absolute;}
+        #menu li{border-bottom: 1px solid #ccc;}
+        #menu .lastli{border: 0;}
+        #menu li a{text-decoration: none;color: #000;}
+    </style>
+</head>
+<body>
+    <!--<div id="demo">
+        <div id="white"></div>
+    </div>-->
+    <button id="ADD">添加</button>
+    <ul id="UL">
+        <li>第1条新闻<span>&times;</span></li>
+        <li>第2条新闻<span>&times;</span></li>
+        <li>第3条新闻<span>&times;</span></li>
+        <li>第4条新闻<span>&times;</span></li>
+        <li>第5条新闻<span>&times;</span></li>
+        <li>第6条新闻<span>&times;</span></li>
+    </ul>
+    <a href="../DOM/DOM.html">跳转</a>
+    
+    <!--<ul id="menu">
+        <li><a href="https://www.baidu.com">百度</a></li>
+        <li class="lastli"><a href="http://www.360.com">360</a></li>
+    </ul>-->
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

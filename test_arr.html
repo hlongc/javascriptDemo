@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*console.log([0]=="0");
+        console.log(+[]);
+        console.log(+{});
+        console.log([[]][0]==[]);
+        console.log([]+1);
+        console.log(++[[]][+[]]+[+[]]);*/
+        function $(id){
+            return document.getElementById(id);
+        }
+        var timer = null;
+        function move(){
+            var oDemo = $('demo');
+            var speed = 1;
+            clearInterval(timer);
+            timer = setInterval(function(){
+                if(oDemo.offsetLeft>=300){
+                    clearInterval(timer);
+                }else{
+                    oDemo.style.left = oDemo.offsetLeft+speed+'px';
+                }
+            },30);
+        }
+    </script>
+    <style type="text/css">
+        #demo{width: 100px;height: 100px;background: skyblue;position: absolute;left: 0;top: 30px;}
+    </style>
+</head>
+<body>
+   <input type="button" onclick="move()" value="运动" />
+    <div id="demo"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

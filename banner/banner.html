@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<script>
+		function mDown(id,num){
+			document.getElementById("inpic").src="img/"+num+".png";
+			document.getElementById(id).style.background="red";
+		}
+		
+		
+		var temp=parseInt(prompt("Fibonacci Sequence前n项求和,n="));
+		/*function main(x)
+		{
+			var tt;
+			if(x==1)
+			{
+				tt=0;
+			}
+			else if(x==2)
+			{
+				tt=1;
+			}
+			else if(x>2)
+			{
+				tt=main(x-1)+main(x-2);
+			}
+            //document.write(tt+" ");
+            return tt;
+		}
+		function add(tempp)
+		{	//debugger;
+			var sum=0;
+			if(tempp==1)
+			{
+				sum=0;
+				return sum;
+			}
+			else if(tempp==2)
+			{
+				sum=1;
+				return sum;
+			}
+			else if(tempp>2)
+			{
+				sum=add(tempp-1)+main(tempp);
+				return sum;
+			}
+		}*/
+        
+        
+		function Fa(n)
+        {
+                //debugger;
+            var t;
+            for(var i=1;i<=n;i++)
+                {
+                    
+                    if(n==1)
+                        {
+                            t=0; 
+                        }
+                    if(n==2)
+                        {
+                            t=1;  
+                        }
+                    if(n>2)
+                        {
+                            t=Fa(n-2)+Fa(n-1);
+                        }
+                   return t;
+                }
+            
+        }
+        function Shuchu(x)
+        {
+            for(var i=1;i<=x;i++)
+                {
+                    document.write(Fa(i)+" ");
+                }
+        }
+        Shuchu(temp);
+        //document.write(Fa(temp));
+		
+		//document.write(add(temp));
+	</script>
+	
+	<style type="text/css">
+		.pic{width:250px;height:180px;position:absolute;top:50%;left:50%;margin-top:-90px;margin-left:-125px;background:pink;}
+		.btn{position:absolute;bottom:3px;right:13px;}
+		.btn input{margin-left:-6px;opacity:0.7;cursor:pointer;}
+	</style>
+</head>
+<body>
+	<div class="pic">
+		<img id="inpic" src="img/pic1.png" />
+		<form class="btn">
+			<input type="radio" id="pic1"  onmouseover="mDown('pic1','pic1')" name="loop" />
+			<input type="radio" id="pic2"  onmouseover="mDown('pic1','pic2')" name="loop" />
+		</form>
+	</div>
+</body>
+</html>
